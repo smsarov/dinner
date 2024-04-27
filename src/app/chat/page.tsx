@@ -80,7 +80,7 @@ function Chat() {
         <motion.button
           whileTap={{scale: 0.9}}
           onClick={submitMessage}
-          className="h-full aspect-square text-lg self-end bg-amber-300 rounded-full flex items-center justify-center"
+          className="h-10 aspect-square text-lg self-end bg-amber-300 rounded-full flex items-center justify-center"
         >
           <CgArrowUp></CgArrowUp>
         </motion.button>
