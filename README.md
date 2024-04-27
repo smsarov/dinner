@@ -1,6 +1,10 @@
 # Deener
 
-_Video_ of working app: https://github.com/smsarov/dinner/assets/47943520/8768ab99-7a95-496d-a100-c02cac488017
+_Video_ of working app: 
+
+https://github.com/smsarov/dinner/assets/47943520/321b4077-cadb-4d1a-9dd0-c79da8889e6a
+
+
 
 
 
