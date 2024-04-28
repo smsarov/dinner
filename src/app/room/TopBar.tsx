@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { socket } from "@/socket";
-import { motion, animate } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useSearchParams } from "next/navigation";
 import { User } from "@/utils/roomUtils/types";
 import ReadyButton from "./ReadyButton";
@@ -13,10 +13,12 @@ function TopBar() {
 
   useEffect(() => {
     socket.emit("data", {
-      name: sessionStorage.getItem("name"),
-      food: sessionStorage.getItem("food"),
-      drink: sessionStorage.getItem("drink"),
-      room_id: code,
+      user: {
+        name: sessionStorage.getItem("name"),
+        food: sessionStorage.getItem("food"),
+        drink: sessionStorage.getItem("drink"),
+      },
+      roomId: code,
     });
 
     socket.on("revalidate", (users) => setUsers(users));
@@ -27,20 +29,24 @@ function TopBar() {
       <p className="py-1 px-4 border font-semibold bg-gradient-to-br from-pink-500 via-purple-500 to-fuchsia-700 via-60% rotate-hue">
         #{code}
       </p>
-      {users.map((user, index) => {
-        return (
-          <motion.p
-            key={index}
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{duration: 0.2, ease: 'easeIn'}}
-            className="py-1 px-4 border"
-          >
-            {user.name}
-          </motion.p>
-        );
-      })}
       <ReadyButton></ReadyButton>
+      <AnimatePresence>
+        {users.map((user, index) => {
+          return (
+            <motion.p
+              key={index}
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0 }}
+              style={{ originX: 0, originY: 0.5 }}
+              transition={{ duration: 0.2, ease: "easeIn" }}
+              className="py-1 px-4 border"
+            >
+              {user.name}
+            </motion.p>
+          );
+        })}
+      </AnimatePresence>
     </div>
   );
 }

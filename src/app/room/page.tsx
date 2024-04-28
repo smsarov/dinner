@@ -9,6 +9,7 @@ import TopBar from "./TopBar";
 
 function page() {
   if (!sessionStorage.getItem("name")) redirect("/chat");
+
   const [connected, setConnected] = useState(false);
 
   useEffect(() => {

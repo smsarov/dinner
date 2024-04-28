@@ -21,8 +21,7 @@ function ReadyButton() {
       {status === "not ready" && (
         <motion.button
           whileTap={{ scale: 0.9 }}
-          initial={{ scale: 0.5, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
+          initial={{ scale: 1}}
           exit={{ scale: 0, opacity: 0 }}
           transition={{ duration: 0.2 }}
           className="py-1 px-6 border font-semibold bg-gradient-to-br from-amber-200/50 via-yellow-400/60 to-yellow-500/50 via-35%"
