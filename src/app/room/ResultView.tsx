@@ -9,12 +9,12 @@ function ResultView() {
 
   const handleDislikePressed = () => {
     setIsDisliked(!isDisliked);
-    socket.emit("dislike pressed", !isDisliked);
+    socket.emit("dislikePressed", !isDisliked);
   };
 
   useEffect(() => {
     socket.on("result", (result: string) => setResult(result));
-    socket.on("dislike pressed", (dislikes) => setDislikes(dislikes));
+    socket.on("dislikePressed", (dislikes) => setDislikes(dislikes));
 
     socket.on("status", (status) => {
       if (status === "writing" || status === "ready") {

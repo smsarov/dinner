@@ -1,7 +1,7 @@
 type User = {
-  name: string | null;
-  food: string | null;
-  drinks: string | null;
+  name?: string;
+  food?: string;
+  drinks?: string;
 };
 
 type Status = "not ready" | "ready" | "writing" | "voting" | "done";

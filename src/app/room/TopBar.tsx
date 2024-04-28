@@ -13,7 +13,7 @@ function TopBar() {
 
   useEffect(() => {
     socket.emit("data", {
-      user: {
+      userProps: {
         name: sessionStorage.getItem("name"),
         food: sessionStorage.getItem("food"),
         drink: sessionStorage.getItem("drink"),
