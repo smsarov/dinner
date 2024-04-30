@@ -1,10 +1,11 @@
 "use client";
 import { RoomPicker } from "@/components/RoomPicker";
 import { redirect } from "next/navigation";
+import useInfo from "@/hooks/useInfoProvided";
 
 export default function Home() {
 
-  if(!sessionStorage.getItem('name')) redirect('/chat');
+  useInfo(() => redirect('/chat'));
 
   return (
     <main className="flex flex-col items-center h-full w-full justify-center">

@@ -6,9 +6,10 @@ import { socket } from "@/socket";
 
 import ResultView from "./ResultView";
 import TopBar from "./TopBar";
+import useInfo from "@/hooks/useInfoProvided";
 
 function Room() {
-  if (!sessionStorage.getItem("name")) redirect("/chat");
+  useInfo(() => redirect("/chat"))
 
   const [connected, setConnected] = useState(false);
 

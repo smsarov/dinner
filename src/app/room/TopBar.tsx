@@ -1,23 +1,28 @@
+"use client";
+
 import React, { useState, useEffect } from "react";
 import { socket } from "@/socket";
 import { AnimatePresence, motion } from "framer-motion";
 import { useSearchParams } from "next/navigation";
-import { User } from "@/utils/roomUtils/types";
+import { UserProps } from "@/utils/roomUtils/types";
 import ReadyButton from "./ReadyButton";
 
 function TopBar() {
   const searchParams = useSearchParams();
   const code = searchParams.get("code");
 
-  const [users, setUsers] = useState<User[]>([]);
+  const [users, setUsers] = useState<UserProps[]>([]);
 
   useEffect(() => {
+
+    const data = {
+      name: sessionStorage.getItem("name") as string,
+      food: sessionStorage.getItem("food") as string,
+      drink: sessionStorage.getItem("drink") as string,
+    }
+
     socket.emit("data", {
-      userProps: {
-        name: sessionStorage.getItem("name"),
-        food: sessionStorage.getItem("food"),
-        drink: sessionStorage.getItem("drink"),
-      },
+      userProps: data,
       roomId: code,
     });
 
