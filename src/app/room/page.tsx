@@ -7,7 +7,7 @@ import { socket } from "@/socket";
 import ResultView from "./ResultView";
 import TopBar from "./TopBar";
 
-function page() {
+function Room() {
   if (!sessionStorage.getItem("name")) redirect("/chat");
 
   const [connected, setConnected] = useState(false);
@@ -34,4 +34,4 @@ function page() {
   );
 }
 
-export default page;
+export default Room;
