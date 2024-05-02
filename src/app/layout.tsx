@@ -24,7 +24,7 @@ export default function RootLayout({
         ></meta>
       </head>
       <body className={inter.className}>
-        <div className="w-screen h-screen flex flex-col items-center">
+        <div className="w-screen h-dvh flex flex-col items-center">
           <Header></Header>
           {children}
         </div>
